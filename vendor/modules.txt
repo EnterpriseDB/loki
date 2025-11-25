@@ -126,7 +126,7 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v5
 # github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v4 v4.3.0
 ## explicit; go 1.18
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v4
-# github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.6.1
+# github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.6.2
 ## explicit; go 1.23.0
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/appendblob
@@ -138,9 +138,24 @@ github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/internal/base
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/internal/exported
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/internal/generated
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/internal/shared
+github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/lease
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/pageblob
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/sas
 github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service
+# github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake v1.4.3
+## explicit; go 1.23.0
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/datalakeerror
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/directory
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/file
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/filesystem
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/internal/base
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/internal/exported
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/internal/generated
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/internal/generated_blob
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/internal/path
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/internal/shared
+github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/sas
 # github.com/Azure/azure-storage-blob-go v0.15.0 => github.com/MasslessParticle/azure-storage-blob-go v0.14.1-0.20240322194317-344980fda573
 ## explicit; go 1.15
 github.com/Azure/azure-storage-blob-go/azblob
@@ -1931,8 +1946,8 @@ github.com/stretchr/testify/assert/yaml
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
 github.com/stretchr/testify/suite
-# github.com/thanos-io/objstore v0.0.0-20250115091151-a54d0f04b42a => github.com/grafana/objstore v0.0.0-20250728171719-b5d3b766d1b0
-## explicit; go 1.22
+# github.com/thanos-io/objstore v0.0.0-20250115091151-a54d0f04b42a => github.com/matthewhudsonedb/objstore v0.0.0-20251121041618-5362311ee5fc
+## explicit; go 1.23.0
 github.com/thanos-io/objstore
 github.com/thanos-io/objstore/clientutil
 github.com/thanos-io/objstore/exthttp
@@ -3119,4 +3134,4 @@ zombiezen.com/go/sqlite/sqlitex
 # github.com/grafana/regexp => github.com/grafana/regexp v0.0.0-20240518133315-a468a5bfb3bc
 # github.com/grafana/loki/pkg/push => ./pkg/push
 # github.com/influxdata/go-syslog/v3 => github.com/leodido/go-syslog/v4 v4.3.0
-# github.com/thanos-io/objstore => github.com/grafana/objstore v0.0.0-20250728171719-b5d3b766d1b0
+# github.com/thanos-io/objstore => github.com/matthewhudsonedb/objstore v0.0.0-20251121041618-5362311ee5fc
