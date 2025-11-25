@@ -1946,7 +1946,7 @@ github.com/stretchr/testify/assert/yaml
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
 github.com/stretchr/testify/suite
-# github.com/thanos-io/objstore v0.0.0-20250115091151-a54d0f04b42a => github.com/matthewhudsonedb/objstore v0.0.0-20251121041618-5362311ee5fc
+# github.com/thanos-io/objstore v0.0.0-20250115091151-a54d0f04b42a => github.com/EnterpriseDB/objstore v0.0.0-20251121041618-5362311ee5fc
 ## explicit; go 1.23.0
 github.com/thanos-io/objstore
 github.com/thanos-io/objstore/clientutil
@@ -3134,4 +3134,4 @@ zombiezen.com/go/sqlite/sqlitex
 # github.com/grafana/regexp => github.com/grafana/regexp v0.0.0-20240518133315-a468a5bfb3bc
 # github.com/grafana/loki/pkg/push => ./pkg/push
 # github.com/influxdata/go-syslog/v3 => github.com/leodido/go-syslog/v4 v4.3.0
-# github.com/thanos-io/objstore => github.com/matthewhudsonedb/objstore v0.0.0-20251121041618-5362311ee5fc
+# github.com/thanos-io/objstore => github.com/EnterpriseDB/objstore v0.0.0-20251121041618-5362311ee5fc
