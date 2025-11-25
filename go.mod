@@ -515,4 +515,4 @@ replace github.com/grafana/loki/pkg/push => ./pkg/push
 // leodido fork his project to continue support
 replace github.com/influxdata/go-syslog/v3 => github.com/leodido/go-syslog/v4 v4.3.0
 
-replace github.com/thanos-io/objstore => github.com/matthewhudsonedb/objstore v0.0.0-20251121041618-5362311ee5fc
+replace github.com/thanos-io/objstore => github.com/EnterpriseDB/objstore v0.0.0-20251121041618-5362311ee5fc
