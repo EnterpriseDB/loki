@@ -1,0 +1,68 @@
+name: build-push-image
+run-name: Build and push an image
+on:
+  workflow_dispatch:
+    inputs:
+      git_ref:
+        description: "git ref to build"
+        required: true
+        default: refs/heads/main
+        type: string
+      debug:
+        type: boolean
+        description: "build a debug image (amd64 only)"
+        default: false
+        required: true
+
+jobs:
+  build-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: "${{ inputs.git_ref }}"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Export spn client id for docker login
+        if: ${{ !env.ACT }}
+        run: |
+          echo "UPM_DEV_CR_SPN_CLIENT_ID=${{ vars.UPM_DEV_CR_SPN_CLIENT_ID }}" >> $GITHUB_ENV
+      # login onto the ACR to make the following dad cli commands work
+      - name: Login to Azure Dev Registry upmdev.azurecr.io
+        uses: docker/login-action@v2
+        with:
+          registry: upmdev.azurecr.io
+          username: ${{ secrets.UPM_DEV_CR_SPN_USERNAME }}
+          password: ${{ secrets.UPM_DEV_CR_SPN_SECRET }}
+      # Should probably do this logic as input computation then use build-and-push action
+      - name: Build and push
+        run: |
+          set -e -u -o pipefail
+          tag=compactor-workaround-$(git rev-parse --short HEAD)
+          platforms="linux/amd64,linux/arm64"
+          dockerfile=cmd/loki/Dockerfile.cross
+          description_suffix=
+          if [ "${{ inputs.debug }}" == "true" ]; then
+            # cross compile debug image should be possible too, just haven't bothered updating the
+            # debug dockerfile to support proper cross compilation
+            platforms="linux/amd64"
+            dockerfile=cmd/loki/Dockerfile.debug
+            tag="${tag}-amd64-debug"
+            description_suffix=" - Debug build"
+          fi
+          echo 1>&2 "Building tag ${tag} for ${platforms}"
+          DOCKER_BUILDKIT=0 docker buildx build \
+            --platform="${platforms}" \
+            --build-arg GO_VERSION=1.25.3 \
+            --build-arg BUILD_IMAGE=grafana/loki-build-image:0.34.6 \
+            --build-arg IMAGE_TAG="${tag}" \
+            --label org.opencontainers.image.source=http://github.com/EnterpriseDB/loki \
+            --label org.opencontainers.image.description="A temporary Loki fork for working around a Compactor bug with Azure Lakehouse Storage (Azure Blob Storage gen2)${description_suffix}" \
+            --label org.opencontainers.image.licenses="AGPL" \
+            -t "ghcr.io/enterprisedb/loki:${tag}" \
+            --push \
+            -f "${dockerfile}" \
+            .
