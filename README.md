@@ -5,6 +5,11 @@
 <a href="https://slack.grafana.com/"><img src="https://img.shields.io/badge/join%20slack-%23loki-brightgreen.svg" alt="Slack" /></a>
 [![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/loki.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:loki)
 
+> [!IMPORTANT]
+> **This is a modified fork maintained by EnterpriseDB**  
+> This repository contains modifications to support Azure Data Lake Storage Gen2. See [MODIFICATIONS.md](./MODIFICATIONS.md) for complete details of all changes, as required by the AGPL-3.0 license.  
+> **Upstream:** https://github.com/grafana/loki
+
 # Loki: like Prometheus, but for logs.
 
 Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by [Prometheus](https://prometheus.io/).
